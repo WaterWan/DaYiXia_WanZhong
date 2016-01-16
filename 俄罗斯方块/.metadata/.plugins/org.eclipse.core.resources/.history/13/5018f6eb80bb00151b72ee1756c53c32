@@ -1,0 +1,14 @@
+package water.eluosifangkuai.ui;
+
+import javax.swing.JFrame;
+
+public class FrameGame extends JFrame{
+
+	public FrameGame(){
+		//设置标题
+		this.setTitle("Java俄罗斯方块");
+		//设计默认关闭
+		this.setDefaultCloseOperation(operation);
+	}
+		
+}

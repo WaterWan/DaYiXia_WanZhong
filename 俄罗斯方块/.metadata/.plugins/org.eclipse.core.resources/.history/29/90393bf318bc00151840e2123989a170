@@ -1,0 +1,24 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class PanelGame extends JPanel{
+
+	private Lay lay1=new Lay(128, 32, 320, 576);
+	
+	public PanelGame(){
+		
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		lay1.createWindow(g);
+	
+	}
+}
+
+

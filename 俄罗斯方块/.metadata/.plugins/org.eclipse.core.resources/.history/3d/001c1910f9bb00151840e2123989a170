@@ -1,0 +1,26 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class PanelGame extends JPanel{
+
+	public PanelGame(){
+		
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+	Image img=new ImageIcon("graphics/window/Window.png").getImage();
+	//g.drawImage(img, 32,32,null);
+	//（32，32）表示图片相对起点的位移）
+	g.drawImage(img, 0, 0, 100,100, 0, 0, 7, 7, null);
+	//(参数,显示起点x,显示起点y,显示终点x,显示终点y,切割起点x,切割起点y,切割终点x,切割终点y,
+	
+	}
+}
+
+
