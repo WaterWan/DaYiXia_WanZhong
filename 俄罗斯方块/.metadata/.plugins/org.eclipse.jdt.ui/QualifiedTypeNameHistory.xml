@@ -2,6 +2,35 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.awt.Toolkit"/>
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
-<fullyQualifiedTypeName name="com.sun.prism.Graphics"/>
 <fullyQualifiedTypeName name="water.eluosifangkuai.ui.Lay"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.ui.LayDataBase"/>
+<fullyQualifiedTypeName name="com.sun.prism.Graphics"/>
+<fullyQualifiedTypeName name="java.awt.Graphics"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.ui.LayBackground"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.txw2.Document"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultElement"/>
+<fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Attribute.Layout.Element"/>
+<fullyQualifiedTypeName name="org.dom4j.Element"/>
+<fullyQualifiedTypeName name="org.dom4j.DocumentException"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.config.LayerConfig"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.config.GameConfig"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.config.ConfigFactory"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
+<fullyQualifiedTypeName name="javax.swing.text.StyledEditorKit.ForegroundAction"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.ui.Layer"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.control.Control"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.ui.JPanelGame"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyAdapter"/>
+<fullyQualifiedTypeName name="javax.management.loading.PrivateClassLoader"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.control.PlayerControl"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.control.GameControl"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.service.GameService"/>
+<fullyQualifiedTypeName name="water.eluosifangkuai.dto.GameDto"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
 </qualifiedTypeNameHistroy>

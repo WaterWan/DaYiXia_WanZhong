@@ -1,0 +1,22 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class LayBackground extends Lay {
+	
+	private static Image IMG_BG_TEMP=new ImageIcon("graphics/background/bg01.jpg").getImage();
+
+	protected LayBackground(int x, int y, int w, int h) {
+		super(x, y, w, h);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+
+		g.drawImage(IMG_BG_TEMP, 0, 0, null);
+	}
+
+}
