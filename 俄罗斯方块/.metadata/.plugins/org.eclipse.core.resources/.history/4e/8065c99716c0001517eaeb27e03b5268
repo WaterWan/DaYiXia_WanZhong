@@ -1,0 +1,23 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+import com.sun.javafx.scene.paint.GradientUtils.Point;
+
+public class LayerGame extends Layer {
+	private static Image ACT=new ImageIcon("graphics/game/rect.png").getImage();
+
+	private static int ACT_SIZE;
+	
+	public LayerGame(int x,int y,int w,int h){
+		super(x,y,w,h);
+	}
+	
+	public void paint(Graphics g){
+		this.createWindow(g);
+		Point[] points=this.dto.getGameAct().getActPoints();
+	}
+}

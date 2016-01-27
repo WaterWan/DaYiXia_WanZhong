@@ -9,7 +9,7 @@ public class GameDto {
 	/*
 	 * 数据库记录
 	 */
-	private List<Player> deRecode;
+	private List<Player> dbRecode;
 	
 	/*
 	 * 本地记录
@@ -45,13 +45,29 @@ public class GameDto {
 	 * 消行
 	 */
 	private int nowRemoveLine;
-
-	public List<Player> getDeRecode() {
-		return deRecode;
+	
+	/*
+	 * 构造函数
+	 */
+	public GameDto(){
+		dtoInit();
+	}
+	
+	/*
+	 * dto初始化
+	 */
+	public void dtoInit(){
+		//TODO 硬编码
+		this.gameMap=new boolean[10][18];
+		//TODO 初始化所有游戏对象
 	}
 
-	public void setDeRecode(List<Player> deRecode) {
-		this.deRecode = deRecode;
+	public List<Player> getDbRecode() {
+		return dbRecode;
+	}
+
+	public void setDbRecode(List<Player> dbRecode) {
+		this.dbRecode = dbRecode;
 	}
 
 	public List<Player> getDiskRecode() {

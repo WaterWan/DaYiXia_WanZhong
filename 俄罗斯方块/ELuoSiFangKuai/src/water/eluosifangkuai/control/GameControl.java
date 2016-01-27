@@ -1,5 +1,7 @@
 package water.eluosifangkuai.control;
 
+import water.eluosifangkuai.dao.Data;
+import water.eluosifangkuai.dao.DataTest;
 import water.eluosifangkuai.service.GameService;
 import water.eluosifangkuai.ui.JPanelGame;
 
@@ -10,26 +12,81 @@ import water.eluosifangkuai.ui.JPanelGame;
  * 
  */
 public class GameControl {
+	
+	/*
+	 * 数据访问接口A
+	 */
+	private Data dataA;
+	
+	/*
+	 * 数据访问接口B
+	 */
+	private Data dataB;
 
 	/*
 	 * 游戏界面层
 	 */
 	private JPanelGame panelGame;
-	
+
 	/*
 	 * 游戏逻辑层
 	 */
 	private GameService gameService;
 
 	public GameControl(JPanelGame panelGame, GameService gameService) {
-		this.panelGame=panelGame;
-		this.gameService=gameService;
+		this.panelGame = panelGame;
+		this.gameService = gameService;
+		//从数据接口A获得数据库记录
+		this.dataA = new DataTest();
+		//设置数据库记录到游戏
+		this.dataB = new DataTest();
+		//从数据接口B获得本地磁盘记录
+		this.gameService.setDbRecode(dataA.loadData());
+		//设置本地磁盘记录到游戏
+		this.gameService.setDiskRecode(dataB.loadData());
 	}
 
-	public void test() {
-		this.gameService.gameTest();
+	/*
+	 * 控制器方向键（上）
+	 */
+	public void keyUp() {
+		this.gameService.keyUp();
 		this.panelGame.repaint();
 	}
+
+	/*
+	 * 控制器方向键（下）
+	 */
+	public void keyDown() {
+		this.gameService.keyDown();
+		this.panelGame.repaint();
+	}
+
+	/*
+	 * 控制器方向键（左）
+	 */
+	public void keyLeft() {
+		this.gameService.keyLeft();
+		this.panelGame.repaint();
+	}
+
+	/*
+	 * 控制器方向键（右）
+	 */
+	public void keyRight() {
+		this.gameService.keyRight();
+		this.panelGame.repaint();
+	}
+	
+	//TODO ========================测试专用方法=============
+	
+	public void testLevelUp(){
+		this.gameService.testLevelUp();
+		this.panelGame.repaint();
+	}
+
+	
+
 
 
 }

@@ -6,9 +6,10 @@
         <layer className="water.eluosifangkuai.ui.LayerDisk" x="40" y="343" w="334" h="279"/>        
         <layer className="water.eluosifangkuai.ui.LayerGame" x="414" y="32" w="334" h="590"/>        
 		<layer className="water.eluosifangkuai.ui.LayerButton" x="788" y="32" w="334" h="124"/>
-        <layer className="water.eluosifangkuai.ui.LayerNext" x="788" y="188" w="176" h="148"/>
-        <layer className="water.eluosifangkuai.ui.LayerLevel" x="964" y="188" w="158" h="148"/>        
-        <layer className="water.eluosifangkuai.ui.LayerPoint" x="788" y="368" w="334" h="200"/>       
+        <layer className="water.eluosifangkuai.ui.LayerNext" x="788" y="188" w="176" h="116"/>
+        <layer className="water.eluosifangkuai.ui.LayerLevel" x="964" y="188" w="158" h="116"/>        
+        <layer className="water.eluosifangkuai.ui.LayerPoint" x="788" y="336" w="334" h="160"/> 
+        <layer className="water.eluosifangkuai.ui.LayerAbout" x="788" y="528" w="334" h="94"/>   
         
         
         

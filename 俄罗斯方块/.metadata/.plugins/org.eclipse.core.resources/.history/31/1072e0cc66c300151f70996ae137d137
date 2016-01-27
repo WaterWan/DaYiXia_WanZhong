@@ -1,0 +1,32 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
+public class LayerPoint extends Layer {
+	/*
+	 * 窗口标题(分数)
+	 */
+	private static final Image IMG_POINT=new ImageIcon("graphics/string/point.png").getImage();
+	
+	/*
+	 * 窗口标题(消行)
+	 */
+	private static final Image IMG_RMLINE=new ImageIcon("graphics/string/rmline.png").getImage();
+
+	private static final int IMG_RMLINE_H = IMG_RMLINE.getHeight(null);
+
+	public LayerPoint(int x, int y, int w, int h) {
+		super(x, y, w, h);
+	}
+
+	public void paint(Graphics g) {
+		this.createWindow(g);
+		// 窗口标题(分数)
+		g.drawImage(IMG_POINT, this.x + PANDDING, this.y + PANDDING, null);
+		// 窗口标题(消行)
+		g.drawImage(IMG_RMLINE, this.x + PANDDING, this.y + IMG_RMLINE_H + (PANDDING <<1), null);
+	}
+}

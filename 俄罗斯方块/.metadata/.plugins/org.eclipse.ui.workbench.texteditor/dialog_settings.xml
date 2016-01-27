@@ -2,22 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="WINDOW_H" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="WINDOW_IMGH"/>
-			<item value="WINDOW_IMGW"/>
-			<item value="img"/>
-			<item value="size"/>
+			<item value="case"/>
+			<item value="deRecord"/>
+			<item value="IMG_NUMBER"/>
+			<item value="WINDOW_IMG"/>
+			<item value="getNowPoint"/>
+			<item value="pointX"/>
+			<item value="POINT_X"/>
+			<item value="POINT_Y"/>
 		</list>
 		<list key="replacehistory">
+			<item value="dbRecord"/>
+			<item value="Img.NUMBER"/>
+			<item value="Img.WINDOW"/>
+			<item value="comX"/>
+			<item value="pointX"/>
+			<item value="pointY"/>
+			<item value="rmLineY"/>
 			<item value="WINDOW_H"/>
-			<item value="WINDOW_W"/>
-			<item value="WINDOW_IMG"/>
-			<item value="SIZE"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -1,11 +1,9 @@
 package water.eluosifangkuai.dto;
 
-import javax.management.loading.PrivateClassLoader;
-
 public class Player {
 
 	private String name;
-	
+
 	private int point;
 
 	public Player(String name, int point) {

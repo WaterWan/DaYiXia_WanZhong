@@ -1,0 +1,31 @@
+package water.eluosifangkuai.ui;
+
+import java.awt.Graphics;
+
+public class LayerDataBase extends Layer{
+	
+	//TODO 配置文件
+	private static final int MAX_ROW = 5;
+	
+	/*
+	 * 起始y坐标
+	 */
+	private static int STATR_Y = 0;
+	
+	/*
+	 * 间距
+	 */
+	private static int SPA = 0;
+
+	public LayerDataBase(int x,int y,int w,int h){
+		super(x,y,w,h);
+		SPA = (this.h - (IMG_RECT_H + 4) * 5 - (PANDDING << 1) - Img.DB.getHeight(null))/MAX_ROW;
+		STATR_Y = this.y + PANDDING + Img.DB.getHeight(null) + SPA;
+	}
+	
+	public void paint(Graphics g){
+		this.createWindow(g);
+		g.drawImage(Img.DB, this.x+PANDDING,this.y+PANDDING,null);
+		this.drawRect(STATR_Y, "No data", "", 0.0, 100.0, g);
+	}
+}
