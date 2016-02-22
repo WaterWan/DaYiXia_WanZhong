@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="act" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="case"/>
-			<item value="deRecord"/>
-			<item value="IMG_NUMBER"/>
-			<item value="WINDOW_IMG"/>
-			<item value="getNowPoint"/>
-			<item value="pointX"/>
-			<item value="POINT_X"/>
-			<item value="POINT_Y"/>
+			<item value="ACT"/>
+			<item value="act"/>
+			<item value="private final int "/>
+			<item value="temp"/>
+			<item value="hodo"/>
+			<item value="sales"/>
+			<item value="ad"/>
+			<item value="images"/>
 		</list>
 		<list key="replacehistory">
+			<item value="this."/>
 			<item value="dbRecord"/>
 			<item value="Img.NUMBER"/>
 			<item value="Img.WINDOW"/>
@@ -25,14 +26,13 @@
 			<item value="pointX"/>
 			<item value="pointY"/>
 			<item value="rmLineY"/>
-			<item value="WINDOW_H"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="325" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="444" key="DIALOG_HEIGHT"/>
-		<item value="807" key="DIALOG_X_ORIGIN"/>
-		<item value="229" key="DIALOG_Y_ORIGIN"/>
+		<item value="1095" key="DIALOG_X_ORIGIN"/>
+		<item value="241" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

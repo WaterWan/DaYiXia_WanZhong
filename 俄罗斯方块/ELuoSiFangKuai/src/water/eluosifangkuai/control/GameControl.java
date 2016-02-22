@@ -1,11 +1,23 @@
 package water.eluosifangkuai.control;
 
-import water.eluosifangkuai.dao.Data;
-import water.eluosifangkuai.dao.DataTest;
-import water.eluosifangkuai.service.GameService;
-import water.eluosifangkuai.ui.JPanelGame;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 
-/*
+import water.eluosifangkuai.config.DataInterfaceConfig;
+import water.eluosifangkuai.config.GameConfig;
+import water.eluosifangkuai.dao.Data;
+import water.eluosifangkuai.service.GameService;
+import water.eluosifangkuai.service.GameTetris;
+import water.eluosifangkuai.ui.JPanelGame;
+import water.eluosifangkuai.ui.cfg.FrameConfig;
+
+/**
  * 接受玩家键盘事件
  * 控制画面
  * 控制游戏逻辑
@@ -13,80 +25,132 @@ import water.eluosifangkuai.ui.JPanelGame;
  */
 public class GameControl {
 	
-	/*
+	/**
 	 * 数据访问接口A
 	 */
 	private Data dataA;
 	
-	/*
+	/**
 	 * 数据访问接口B
 	 */
 	private Data dataB;
 
-	/*
-	 * 游戏界面层
-	 */
-	private JPanelGame panelGame;
-
-	/*
+	/**
 	 * 游戏逻辑层
 	 */
 	private GameService gameService;
+	
+	/**
+	 * 游戏界面层
+	 */
+	private JPanelGame panelGame;
+	
+	/**
+	 * 游戏控制窗口
+	 */
+	private FrameConfig frameConfig;
 
-	public GameControl(JPanelGame panelGame, GameService gameService) {
+
+	
+	/**
+	 * 游戏行为控制
+	 */
+	private Map<Integer, Method> actionList;
+
+	public GameControl(JPanelGame panelGame, GameTetris gameService) {
 		this.panelGame = panelGame;
 		this.gameService = gameService;
-		//从数据接口A获得数据库记录
-		this.dataA = new DataTest();
-		//设置数据库记录到游戏
-		this.dataB = new DataTest();
-		//从数据接口B获得本地磁盘记录
+		// 获得类对象		
+		this.dataA = createDataObject(GameConfig.getDataConfig().getDataA());
+		// 从数据接口B获得本地磁盘记录
 		this.gameService.setDbRecode(dataA.loadData());
-		//设置本地磁盘记录到游戏
+		// 设置数据库记录到游戏
+		this.dataB = createDataObject(GameConfig.getDataConfig().getDataB());
+		// 设置本地磁盘记录到游戏
 		this.gameService.setDiskRecode(dataB.loadData());
+		// 读取用户控制设置
+		this.setControlConfig();
+		// 初始化用户配置窗口
+		this.frameConfig = new FrameConfig(this);
 	}
 
-	/*
-	 * 控制器方向键（上）
+	/**
+	 * 读取用户控制设置
 	 */
-	public void keyUp() {
-		this.gameService.keyUp();
-		this.panelGame.repaint();
+	private void setControlConfig(){
+		// 创建键盘码与方法名的数组映射 
+		this.actionList = new HashMap<Integer, Method>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/control.dat"));
+			HashMap<Integer, String> cfgSet =(HashMap<Integer, String>)ois.readObject();
+			Set<Entry<Integer, String>> entryset = cfgSet.entrySet();
+			for (Entry<Integer, String> e : entryset) {
+				actionList.put(e.getKey(), this.gameService.getClass().getMethod(e.getValue()));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	/*
-	 * 控制器方向键（下）
+	/**
+	 * 创建数据对象
+	 * 
+	 * @param cfg
+	 * @return
 	 */
-	public void keyDown() {
-		this.gameService.keyDown();
-		this.panelGame.repaint();
-	}
-
-	/*
-	 * 控制器方向键（左）
-	 */
-	public void keyLeft() {
-		this.gameService.keyLeft();
-		this.panelGame.repaint();
-	}
-
-	/*
-	 * 控制器方向键（右）
-	 */
-	public void keyRight() {
-		this.gameService.keyRight();
-		this.panelGame.repaint();
+	private Data createDataObject(DataInterfaceConfig cfg) {
+		try {
+			//获得类对象
+			Class<?> cls = Class.forName(cfg.getClassName());
+			//获得构造器
+			Constructor<?> ctr = cls.getConstructor(HashMap.class);
+			//创建对象 
+			return (Data)ctr.newInstance(cfg.getParam());
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
-	//TODO ========================测试专用方法=============
-	
-	public void testLevelUp(){
-		this.gameService.testLevelUp();
+	/**
+	 * 根据玩家控制来确定行为
+	 */
+	public void actionByKeyCode(int keyCode) {
+		try {
+			if (this.actionList.containsKey(keyCode)) {
+				this.actionList.get(keyCode).invoke(this.gameService);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		this.panelGame.repaint();
 	}
 
-	
+	/**
+	 * 显示玩家控制窗口
+	 */
+	public void showUserConfig() {
+		this.frameConfig.setVisible(true);
+	}
 
+	/**
+	 * 子窗口关闭事件
+	 */
+	public void setOver() {
+		this.panelGame.repaint();
+		this.setControlConfig();
+	}
 
-
+	/**
+	 * 开始按钮事件
+	 */
+	public void start() {
+		this.gameService.startMainThread();
+		this.panelGame.repaint();
+	}
 }

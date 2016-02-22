@@ -1,0 +1,14 @@
+package water.eluosifangkuai.ui.cfg;
+
+import javax.swing.JFrame;
+
+public class FrameConfig extends JFrame{
+
+	public FrameConfig(){
+		
+		
+		// TODO ===p)≤‚ ‘”√
+		this.setVisible(true);
+	}
+	
+}

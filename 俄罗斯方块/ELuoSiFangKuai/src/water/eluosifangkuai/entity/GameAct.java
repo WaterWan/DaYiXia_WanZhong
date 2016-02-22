@@ -1,8 +1,9 @@
 package water.eluosifangkuai.entity;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.List;
+
+import water.eluosifangkuai.config.GameConfig;
 
 
 
@@ -20,25 +21,13 @@ public class GameAct {
 	 */
 	private int typeCode;
 	
-	private static int MIN_X=0;
-	private static int MAX_X=9;
-	private static int MIN_Y=0;
-	private static int MAX_Y=17;
+	private static final int MIN_X= GameConfig.getSystemConfig().getMinX();
+	private static final int MAX_X= GameConfig.getSystemConfig().getMaxX();
+	private static final int MIN_Y= GameConfig.getSystemConfig().getMinY();
+	private static final int MAX_Y= GameConfig.getSystemConfig().getMaxY();
 	
-	private static List<Point[]> TYPE_CONFIG;
-	
-	static{
-		//TODO 配置文件
-		TYPE_CONFIG=new ArrayList<Point[]>(7);
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(3, 0), new Point(5, 0), new Point(6, 0)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(3, 0), new Point(5, 0), new Point(4, 1)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(3, 0), new Point(5, 0), new Point(3, 1)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(5, 0), new Point(3, 1), new Point(4, 1)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(5, 0), new Point(4, 1), new Point(5, 1)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(3, 0), new Point(5, 0), new Point(5, 1)});
-		TYPE_CONFIG.add(new Point[]{new Point(4, 0), new Point(3, 0), new Point(4, 1), new Point(5, 1)});
-	}
-	
+	private static final List<Point[]> TYPE_CONFIG = GameConfig.getSystemConfig().getTypeConfig();
+	private static final List<Boolean> TYPE_ROUND = GameConfig.getSystemConfig().getTypeRound();
 	public GameAct(int typeCode){
 		this.init(typeCode);	
 	}
@@ -91,8 +80,7 @@ public class GameAct {
 	 * 
 	 */
 	public void round(boolean[][] gameMap){
-		//TODO 配置文件
-		if (this.typeCode==4) {
+		if (!TYPE_ROUND.get(this.typeCode)) {
 			return;
 		}
 		for (int i = 1; i < actPoints.length; i++) {
