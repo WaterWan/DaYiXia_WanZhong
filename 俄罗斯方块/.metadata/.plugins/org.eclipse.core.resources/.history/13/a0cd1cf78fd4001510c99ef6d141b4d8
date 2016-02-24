@@ -1,0 +1,22 @@
+package water.eluosifangkuai.ui.cfg;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JTextField;
+
+public class TextCtrl extends JTextField {
+	
+	public TextCtrl(int x, int y, int w, int h){
+		this.setBounds(x, y, w, h);
+		this.addKeyListener(new KeyListener() {
+			public void keyTyped(KeyEvent e) {
+				setText(Integer.toString(e.getKeyCode()));
+				
+			}
+			public void keyReleased(KeyEvent e) {}
+			public void keyPressed(KeyEvent e) {}
+
+		});
+	}	
+}

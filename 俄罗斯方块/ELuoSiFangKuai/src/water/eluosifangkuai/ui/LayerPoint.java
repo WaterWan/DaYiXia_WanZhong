@@ -2,36 +2,36 @@ package water.eluosifangkuai.ui;
 
 import java.awt.Graphics;
 
+import water.eluosifangkuai.config.GameConfig;
+
 public class LayerPoint extends Layer {
 
-	/*
+	/**
 	 * 分数最大位数
 	 */
 	private static final int POINT_BIT = 5;
 
+	/**
+	 * 升级行数
+	 */
+	private static final int LEVEL_UP = GameConfig.getSystemConfig().getLevelUp();
 
-
-	
-
-	// TODO 配置文件
-	private static final int LEVEL_UP = 20;
-	
-	/*
+	/**
 	 * 消行y坐标
 	 */
 	private final int rmLineY;
 
-	/*
+	/**
 	 * 分数y坐标
 	 */
 	private final int pointY;
 
-	/*
+	/**
 	 * 经验值y坐标
 	 */
 	private final int expY;
 
-	/*
+	/**
 	 * 消行x坐标
 	 */
 	private final int comX;
@@ -61,10 +61,8 @@ public class LayerPoint extends Layer {
 		this.drawNumberLeftPad(comX, rmLineY, this.dto.getNowRemoveLine(), POINT_BIT, g);
 		// 绘制值槽（经验值）
 		int rmLine = this.dto.getNowRemoveLine();
-		this.drawRect(expY,"下一级",null,(double) (rmLine % LEVEL_UP) / (double) LEVEL_UP, g);
+		this.drawRect(expY, "下一级", null, (double) (rmLine % LEVEL_UP) / (double) LEVEL_UP, g);
 
 	}
-
-
 
 }
