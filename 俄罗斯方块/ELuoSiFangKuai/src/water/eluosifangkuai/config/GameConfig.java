@@ -1,10 +1,5 @@
 package water.eluosifangkuai.config;
 
-import java.lang.Integer;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -15,151 +10,61 @@ import org.dom4j.io.SAXReader;
  */
 public class GameConfig {
 
-	/*
-	 * 窗口宽度
-	 */
-	private int width;
-	
-	/*
-	 * 窗口高度
-	 */
-	private int height;
-	
-	/*
-	 * 标题
-	 */
-	private String title;
-	
-	/*
-	 * 窗口拔高
-	 */
-	private int windowUp;
-	
-	/*
-	 * 边框尺寸
-	 */
-	private int windowSize;
-	
-	/*
-	 * 边框内边距
-	 */
-	private int padding;
-	
-	/*
-	 * 图层属性
-	 */
-	private List<LayerConfig> layersConfig;
-	/*
-	 * 构造函数
-	 * 读取XML文件，获取全部游戏配置
-	 * 
-	 * 
-	 */
-	
-	public GameConfig() throws Exception{
-		//创建XML读取器
-		SAXReader reader=new SAXReader();
-		//读取XML文件
-		Document doc=reader.read("config/cfg.xml");
-		//获取XML文件的根节点
-		Element game=doc.getRootElement();
-		//配置窗口参数
-		this.SetUiConfig(game.element("frame"));
-		//配置系统参数
-		this.setSystemConfig(game.element("system"));
-		//配置数据访问参数
-		this.setDataConfig(game.element("data"));		
-	}
-	
-	
-	/*
-	 * 配置窗口
-	 * 
-	 * @param frame 配置文件的窗口配置元素
-	 */
-	private void SetUiConfig(Element frame){
-		//获取窗口宽度
-		this.width=Integer.parseInt(frame.attributeValue("width"));
-		//获取窗口高度
-		this.height=Integer.parseInt(frame.attributeValue("height"));
-		//获取边框粗细
-		this.windowSize=Integer.parseInt(frame.attributeValue("windowSize"));
-		//获取边框内边距
-		this.padding=Integer.parseInt(frame.attributeValue("padding"));
-		//获取标题
-		this.title=frame.attributeValue("title");
-		//获取窗口拔高
-		this.windowUp=Integer.parseInt(frame.attributeValue("windowUp"));
-		//获取窗体属性
-		List<Element> layers=frame.elements("layer");
-		layersConfig=new ArrayList<LayerConfig>();
-		//获取所有窗体属性
-		for(Element layer : layers){
-			LayerConfig lc=new LayerConfig(
-				layer.attributeValue("className"),
-				Integer.parseInt(layer.attributeValue("x")),
-				Integer.parseInt(layer.attributeValue("y")),
-				Integer.parseInt(layer.attributeValue("w")),
-				Integer.parseInt(layer.attributeValue("h"))
-			);
+	private static FrameConfig FRAME_CONFIG = null;
 
-			layersConfig.add(lc);
+	private static DataConfig DATA_CONFIG = null;
+
+	private static SystemConfig SYSTEM_CONFIG = null;
+
+	static {
+		try {
+			// 创建XML读取器
+			SAXReader reader = new SAXReader();
+			// 读取XML文件
+			Document doc = reader.read("data/cfg.xml");
+			// 获取XML文件的根节点
+			Element game = doc.getRootElement();
+			// 创建界面配置对象
+			FRAME_CONFIG = new FrameConfig(game.element("frame"));
+			// 创建系统对象
+			SYSTEM_CONFIG = new SystemConfig(game.element("system"));
+			// 创建数据访问配置对象
+			DATA_CONFIG = new DataConfig(game.element("data"));
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
-	
-	
-	/*
-	 * 配置系统参数
-	 * 
-	 * @param frame
-	 * 
-	 */	
-	private void setSystemConfig(Element frame){
-		//TODO 配置系统参数
+
+	/**
+	 * 构造器私有化
+	 **/
+	GameConfig() {
 	}
-	
-	
-	/*
-	 * 
-	 * 配置数据访问参数
-	 * 
-	 * @param data
+
+	/**
+	 * 获得窗口配置
+	 * @return
 	 */
-	private void setDataConfig(Element frame){
-		//TODO 配置数据访问参数
+	public static FrameConfig getFrameConfig() {
+		return FRAME_CONFIG;
 	}
 
 
-	public int getWidth() {
-		return width;
+	/**
+	 * 获得数据访问配置
+	 * @return
+	 */
+	public static DataConfig getDataConfig() {
+		return DATA_CONFIG;
 	}
 
-
-	public int getHeight() {
-		return height;
+	/**
+	 * 获得系统配置
+	 * @return
+	 */
+	public static SystemConfig getSystemConfig() {
+		return SYSTEM_CONFIG;
 	}
 
-
-	public int getWindowSize() {
-		return windowSize;
-	}
-
-
-	public int getPadding() {
-		return padding;
-	}
-
-
-	public List<LayerConfig> getLayersConfig() {
-		return layersConfig;
-	}
-	
-	public String getTitle(){
-		return title;
-	}
-	
-	public int getWindowUp(){
-		return windowUp;
-	}
-	
 }

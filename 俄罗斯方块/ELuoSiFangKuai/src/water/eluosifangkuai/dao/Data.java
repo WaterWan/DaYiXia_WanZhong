@@ -17,5 +17,5 @@ public interface Data {
 	/*
 	 * ´æ´¢Êý¾Ý
 	 */
-	public void saveData(List<Player> players);
+	public void saveData(Player players);
 }

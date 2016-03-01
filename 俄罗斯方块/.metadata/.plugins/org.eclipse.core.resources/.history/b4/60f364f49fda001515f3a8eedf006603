@@ -1,0 +1,14 @@
+package project;
+
+public class TelPhone {
+	private float price;
+	private int size;
+	
+	private void call(){
+		System.out.println(2333);
+	}
+	
+	private void call(String string){
+		System.out.println(string);
+	}
+}

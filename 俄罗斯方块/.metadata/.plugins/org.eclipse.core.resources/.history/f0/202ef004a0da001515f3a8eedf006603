@@ -1,0 +1,10 @@
+package main;
+
+import project.TelPhone;
+
+public class MainFunction {
+	public static void main(String[] args) {
+		TelPhone telPhone = new TelPhone();
+		telPhone.call();
+	}
+}

@@ -1,0 +1,16 @@
+package project;
+
+import project.TelPhone;
+
+public class TelPhoneTest {
+	TelPhone telPhone = new TelPhone();
+	telPhone.call();
+	telPhone.call("110");
+	System.out.println(telPhone.getPrice());
+	telPhone.setPrice(10000);
+	System.out.println(telPhone.getPrice());
+	telPhone.setSize(5);
+	System.out.println(telPhone.getSize());
+	TelPhone test = new TelPhone();
+	System.out.println(test.getPrice());
+}

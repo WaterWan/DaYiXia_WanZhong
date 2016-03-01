@@ -1,65 +1,88 @@
 package water.eluosifangkuai.dto;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import water.eluosifangkuai.config.GameConfig;
 import water.eluosifangkuai.entity.GameAct;
 
 public class GameDto {
-
-	/*
+	
+	/**
+	 * 游戏宽度
+	 */
+	public static final int GAMEZONE_W = GameConfig.getSystemConfig().getMaxX() + 1;
+	
+	/**
+	 * 游戏高度
+	 */
+	public static final int GAMEZONE_H = GameConfig.getSystemConfig().getMaxY() + 1;
+	
+	/**
 	 * 数据库记录
 	 */
 	private List<Player> dbRecode;
 	
-	/*
+	/**
 	 * 本地记录
 	 */
 	private List<Player> diskRecode;
 	
-	/*
+	/**
 	 * 游戏地图
 	 */
 	private boolean[][] gameMap;
 	
-	/*
+	/**
 	 * 下落方块
 	 */
 	private GameAct gameAct;
 	
-	/*
+	/**
 	 * 下一个方块
 	 */
 	private int next;
 	
-	/*
+	/**
 	 * 等级
 	 */
 	private int nowLevel;
 	
-	/*
+	/**
 	 * 得分
 	 */
 	private int nowPoint;
 	
-	/*
+	/**
 	 * 消行
 	 */
 	private int nowRemoveLine;
 	
-	/*
+	/**
+	 * 游戏是否是开始状态
+	 */
+	private boolean start;
+	
+	/**
+	 * 是否显示阴影
+	 */
+	private boolean showShadow;
+
+	/**
 	 * 构造函数
 	 */
 	public GameDto(){
 		dtoInit();
 	}
 	
-	/*
+	/**
 	 * dto初始化
 	 */
 	public void dtoInit(){
-		//TODO 硬编码
-		this.gameMap=new boolean[10][18];
-		//TODO 初始化所有游戏对象
+
+		this.gameMap=new boolean[GAMEZONE_W][GAMEZONE_H];
+		//TODO ===p)初始化所有游戏对象
 	}
 
 	public List<Player> getDbRecode() {
@@ -67,7 +90,8 @@ public class GameDto {
 	}
 
 	public void setDbRecode(List<Player> dbRecode) {
-		this.dbRecode = dbRecode;
+		
+		this.dbRecode = this.setFillRecode(dbRecode);
 	}
 
 	public List<Player> getDiskRecode() {
@@ -75,7 +99,20 @@ public class GameDto {
 	}
 
 	public void setDiskRecode(List<Player> diskRecode) {
-		this.diskRecode = diskRecode;
+		this.diskRecode = this.setFillRecode(diskRecode);
+	}
+	
+	private  List<Player> setFillRecode(List<Player> players){
+		//如果进来的是空，那么就创建
+		if (players == null) {
+			players = new ArrayList<Player>();
+		}
+		//如果记录数小于5，那么就加到5条为止
+		while(players.size()<5){
+			players.add(new Player("No Data", 0));
+		}
+		Collections.sort(players);
+		return players;
 	}
 
 	public boolean[][] getGameMap() {
@@ -126,6 +163,28 @@ public class GameDto {
 
 	public void setNowRemoveLine(int nowRemoveLine) {
 		this.nowRemoveLine = nowRemoveLine;
+	}
+	
+	/**
+	 * @return the start
+	 */
+	public boolean isStart() {
+		return start;
+	}
+
+	/**
+	 * @param start the start to set
+	 */
+	public void setStart(boolean start) {
+		this.start = start;
+	}
+
+	public boolean isShowShadow() {
+		return showShadow;
+	}
+
+	public void changeShowShadow() {
+		this.showShadow = !this.showShadow;
 	}
 	
 }

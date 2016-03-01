@@ -1,0 +1,7 @@
+package project;
+
+public class IPhone {
+	private TelPhone telPhone;
+	int a = telPhone.getPrice();
+
+}

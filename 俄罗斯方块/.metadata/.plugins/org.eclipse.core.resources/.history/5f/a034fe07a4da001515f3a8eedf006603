@@ -1,0 +1,29 @@
+package project;
+
+public class TelPhone {
+	private float price = 5234.123f;
+	private int size;
+	
+	public void call(){
+		System.out.println(2333);
+	}
+
+	public void call(String string){
+		System.out.println(string);
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public int getSize() {
+		return size;
+	}
+}
