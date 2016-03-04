@@ -9,15 +9,16 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="after"/>
+			<item value="true"/>
+			<item value="7"/>
 			<item value="sleep"/>
 			<item value="main"/>
 			<item value="setDb"/>
 			<item value="GameAct"/>
 			<item value="gameact"/>
-			<item value="ACT"/>
-			<item value="act"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BORDER"/>
 			<item value="this."/>
 			<item value="dbRecord"/>
 			<item value="Img.NUMBER"/>
@@ -25,7 +26,6 @@
 			<item value="comX"/>
 			<item value="pointX"/>
 			<item value="pointY"/>
-			<item value="rmLineY"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -8,10 +8,15 @@ public class Homework4 {
 		Scanner s = new Scanner(System.in);
 		int n = s.nextInt();
 		int sum = 0;
-		Homework3 h = new Homework3();
+		Homework4 h = new Homework4();
 		for (int i = 1; i <= n; i++) {
 			sum += h.square(i);
 		}
 		System.out.println("1到" + n + "的平方和为" + sum);
+		s.close();
+	}
+	
+	public int square(int a){
+		return a*a;
 	}
 }

@@ -39,6 +39,11 @@ public class LayerGame extends Layer {
 
 		// 绘制游戏地图
 		this.drawMap(g);
+		// 暂停
+		if(this.dto.isPause()){
+			this.drawImageAtCenter(Img.PAUSE, g);
+		}
+		
 
 	}
 
@@ -51,7 +56,7 @@ public class LayerGame extends Layer {
 		boolean[][] map = this.dto.getGameMap();
 		// 计算当前堆积颜色
 		int lv = this.dto.getNowLevel();
-		int imgIdx = lv == 0 ? 0 : (lv - 1) % 7 + 1;
+		int imgIdx = lv == 0 ? 0 : (lv - 1) % BORDER + 1;
 		for (int x = 0; x < map.length; x++) {
 			for (int y = 0; y < map[x].length; y++) {
 				if (map[x][y]) {
@@ -102,10 +107,10 @@ public class LayerGame extends Layer {
 	private void drawActByPoint(int x, int y, int imgIdx, Graphics g) {
 		imgIdx = this.dto.isStart() ? imgIdx : LOSE_IDX;
 		g.drawImage(Img.ACT, 
-				this.x + (x << SIZE_ROL) + 7, 
-				this.y + (y << SIZE_ROL) + 7,
-				this.x + (x + 1 << SIZE_ROL) + 7, 
-				this.y + (y + 1 << SIZE_ROL) + 7, 
+				this.x + (x << SIZE_ROL) + BORDER, 
+				this.y + (y << SIZE_ROL) + BORDER,
+				this.x + (x + 1 << SIZE_ROL) + BORDER, 
+				this.y + (y + 1 << SIZE_ROL) + BORDER, 
 				imgIdx << SIZE_ROL, 
 				0,
 				(imgIdx + 1) << SIZE_ROL, 

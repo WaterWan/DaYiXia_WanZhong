@@ -68,6 +68,11 @@ public class GameDto {
 	 * 是否显示阴影
 	 */
 	private boolean showShadow;
+	
+	/**
+	 * 暂停
+	 */
+	private boolean pause;
 
 	/**
 	 * 构造函数
@@ -186,5 +191,12 @@ public class GameDto {
 	public void changeShowShadow() {
 		this.showShadow = !this.showShadow;
 	}
-	
+
+	public boolean isPause() {
+		return pause;
+	}
+
+	public void changePause() {
+			this.pause = !this.pause;
+	}	
 }

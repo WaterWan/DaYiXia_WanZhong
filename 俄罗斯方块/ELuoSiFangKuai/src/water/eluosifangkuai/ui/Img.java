@@ -70,6 +70,11 @@ public class Img {
 	public static Image SHODOW = new ImageIcon("graphics/game/shadow.png").getImage();
 	
 	/**
+	 * 暂停图片
+	 */
+	public static Image PAUSE = new ImageIcon("graphics/string/pause.png").getImage();
+	
+	/**
 	 * 开始按钮
 	 */
 	public static ImageIcon BTN_START = new ImageIcon("graphics/string/strat.png");
@@ -78,6 +83,8 @@ public class Img {
 	 * 设置按钮
 	 */
 	public static ImageIcon BTN_CONFIG = new ImageIcon("graphics/string/config.png");
+	
+
 	
 	/*
 	 * 下一个图片数组

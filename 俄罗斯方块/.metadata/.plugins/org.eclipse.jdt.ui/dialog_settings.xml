@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="E:\大一下\上传\DaYiXia_WanZhong\作业" key="org.eclipse.jdt.ui.last.external.project"/>
+	<item value="C:\Program Files\Java\Java3D\1.5.1\lib\ext" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="E:\大一下\上传\DaYiXia_WanZhong\TicTacToe" key="org.eclipse.jdt.ui.last.external.project"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>

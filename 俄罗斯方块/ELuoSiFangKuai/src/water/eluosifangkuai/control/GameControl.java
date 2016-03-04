@@ -20,18 +20,16 @@ import water.eluosifangkuai.ui.JPanelGame;
 import water.eluosifangkuai.ui.cfg.FrameConfig;
 
 /**
- * 接受玩家键盘事件
- * 控制画面
- * 控制游戏逻辑
+ * 接受玩家键盘事件 控制画面 控制游戏逻辑
  * 
  */
 public class GameControl {
-	
+
 	/**
 	 * 数据访问接口A
 	 */
 	private Data dataA;
-	
+
 	/**
 	 * 数据访问接口B
 	 */
@@ -41,12 +39,12 @@ public class GameControl {
 	 * 游戏逻辑层
 	 */
 	private GameService gameService;
-	
+
 	/**
 	 * 游戏界面层
 	 */
 	private JPanelGame panelGame;
-	
+
 	/**
 	 * 游戏控制窗口
 	 */
@@ -56,12 +54,12 @@ public class GameControl {
 	 * 游戏行为控制
 	 */
 	private Map<Integer, Method> actionList;
-	
+
 	/**
 	 * 游戏线程
 	 */
 	private Thread gameThread = null;
-	
+
 	/**
 	 * 游戏数据源
 	 */
@@ -72,7 +70,7 @@ public class GameControl {
 		this.dto = new GameDto();
 		// 创建游戏逻辑块（连接游戏数据源）
 		this.gameService = new GameTetris(dto);
-		// 创建数据接口A对象		
+		// 创建数据接口A对象
 		this.dataA = createDataObject(GameConfig.getDataConfig().getDataA());
 		// 设置数据库记录到游戏
 		this.dto.setDbRecode(dataA.loadData());
@@ -93,18 +91,17 @@ public class GameControl {
 	/**
 	 * 读取用户控制设置
 	 */
-	private void setControlConfig(){
-		// 创建键盘码与方法名的数组映射 
+	private void setControlConfig() {
+		// 创建键盘码与方法名的数组映射
 		this.actionList = new HashMap<Integer, Method>();
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data/control.dat"));
-			HashMap<Integer, String> cfgSet =(HashMap<Integer, String>)ois.readObject();
+			HashMap<Integer, String> cfgSet = (HashMap<Integer, String>) ois.readObject();
 			Set<Entry<Integer, String>> entryset = cfgSet.entrySet();
 			for (Entry<Integer, String> e : entryset) {
 				actionList.put(e.getKey(), this.gameService.getClass().getMethod(e.getValue()));
 			}
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -118,20 +115,19 @@ public class GameControl {
 	 */
 	private Data createDataObject(DataInterfaceConfig cfg) {
 		try {
-			//获得类对象
+			// 获得类对象
 			Class<?> cls = Class.forName(cfg.getClassName());
-			//获得构造器
+			// 获得构造器
 			Constructor<?> ctr = cls.getConstructor(HashMap.class);
-			//创建对象 
-			return (Data)ctr.newInstance(cfg.getParam());
-			
-			
+			// 创建对象
+			return (Data) ctr.newInstance(cfg.getParam());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 根据玩家控制来确定行为
 	 */
@@ -140,10 +136,10 @@ public class GameControl {
 			if (this.actionList.containsKey(keyCode)) {
 				this.actionList.get(keyCode).invoke(this.gameService);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		this.panelGame.repaint();
 	}
 
@@ -171,29 +167,39 @@ public class GameControl {
 		// 游戏数据初始化
 		this.gameService.startGame();
 		// 创建线程对象
-		this.gameThread = new Thread() {
-			@Override
-			public void run() {
-				// 刷新画面
-				panelGame.repaint();
-				// 主循环
-				while(true) {
-					try {
-						// 等待0.5秒 
-						Thread.sleep(500);
-						// 方块下落
-						gameService.mainAction();
-						// 刷新画面
-						panelGame.repaint();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		};
+		this.gameThread = new MainThread();
 		// 启动线程
 		this.gameThread.start();
 		// 刷新画面
 		this.panelGame.repaint();
 	}
+
+	private class MainThread extends Thread {
+		@Override
+		public void run() {
+			// 刷新画面
+			panelGame.repaint();
+			// 主循环
+			while (true) {
+				if (!dto.isStart()) {
+					break;
+				}
+				try {
+					// 等待0.5秒
+					Thread.sleep(500);
+					// 如果暂停，那么不执行主行为
+					if(dto.isPause()){
+						continue;
+					}
+					// 方块下落
+					gameService.mainAction();
+					// 刷新画面
+					panelGame.repaint();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 }

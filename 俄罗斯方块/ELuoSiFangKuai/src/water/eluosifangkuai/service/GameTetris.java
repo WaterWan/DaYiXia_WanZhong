@@ -42,6 +42,9 @@ public class GameTetris implements GameService {
 	 * 方块操作（上）
 	 */
 	public boolean keyUp() {
+		if (this.dto.isPause()) {
+			return true;
+		}
 		synchronized (this.dto) {
 			this.dto.getGameAct().round(this.dto.getGameMap());
 		}
@@ -52,6 +55,9 @@ public class GameTetris implements GameService {
 	 * 方块操作（下）
 	 */
 	public boolean keyDown() {
+		if (this.dto.isPause()) {
+			return true;
+		}
 		synchronized (this.dto) {
 			if (this.dto.getGameAct().move(0, 1, this.dto.getGameMap())) {
 				return false;
@@ -77,19 +83,11 @@ public class GameTetris implements GameService {
 			this.dto.setNext(random.nextInt(MAX_TYPE));
 			// 检查游戏是否失败
 			if (this.isLose()) {
-				this.afterLose();
+				// 结束游戏
+				this.dto.setStart(false);
 			}
 		}
 		return true;
-	}
-
-	/**
-	 * 游戏失败后的处理
-	 */
-	private void afterLose() {
-		// 设置游戏开始状态为false
-		this.dto.setStart(false);
-		// TODO 关闭游戏主线程
 	}
 
 	/**
@@ -129,6 +127,9 @@ public class GameTetris implements GameService {
 	 * 方块操作（左）
 	 */
 	public boolean keyLeft() {
+		if (this.dto.isPause()) {
+			return true;
+		}
 		synchronized (this.dto) {
 			this.dto.getGameAct().move(-1, 0, this.dto.getGameMap());
 		}
@@ -139,6 +140,9 @@ public class GameTetris implements GameService {
 	 * 方块操作（右）
 	 */
 	public boolean keyRight() {
+		if (this.dto.isPause()) {
+			return true;
+		}
 		synchronized (this.dto) {
 			this.dto.getGameAct().move(+1, 0, this.dto.getGameMap());
 		}
@@ -208,16 +212,18 @@ public class GameTetris implements GameService {
 	}
 
 	/**
-	 * TODO 瞬间下落
+	 * 瞬间下落
 	 */
 	public boolean keyFunDown() {
-		while (!this.keyDown())
-			;
+		if (this.dto.isPause()) {
+			return true;
+		}
+		while (!this.keyDown());
 		return true;
 	}
 
 	/**
-	 * TODO 阴影开关
+	 * 阴影开关
 	 */
 	@Override
 	public boolean keyFunLeft() {
@@ -226,10 +232,13 @@ public class GameTetris implements GameService {
 	}
 
 	/**
-	 * TODO 暂停
+	 * 暂停
 	 */
 	@Override
 	public boolean keyFunRight() {
+		if (this.dto.isStart()) {
+			this.dto.changePause();
+		}
 		return true;
 	}
 
