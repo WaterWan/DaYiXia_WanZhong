@@ -6282,3 +6282,230 @@ java.net.UnknownHostException: dev.eclipse.org
 
 !ENTRY com.android.ide.eclipse.adt 1 0 2016-03-04 21:57:36.930
 !MESSAGE No valid Android XML Editor Delegate found for file /ELuoSiFangKuai/data/cfg.xml [Res null, type null]
+!SESSION 2016-03-05 09:34:20.572 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-05 09:35:39.850
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lenovo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-03-05 13:40:39.313 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product F:\学长资料\队友\Main.java
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product F:\学长资料\队友\Main.java
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-05 13:41:22.538
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lenovo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-03-05 14:07:45.458
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path]
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getRawClasspathEntry(PackageFragmentRoot.java:562)
+	at org.eclipse.jdt.internal.core.JavaElement.getJavadocBaseLocation(JavaElement.java:728)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1011)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:582)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2016-03-05 14:07:45.459
+!MESSAGE D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-03-05 14:09:06.835
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path]
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getRawClasspathEntry(PackageFragmentRoot.java:562)
+	at org.eclipse.jdt.internal.core.JavaElement.getJavadocBaseLocation(JavaElement.java:728)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1011)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:582)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2016-03-05 14:09:06.835
+!MESSAGE D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-03-05 14:13:58.278
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path]
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getRawClasspathEntry(PackageFragmentRoot.java:562)
+	at org.eclipse.jdt.internal.core.JavaElement.getJavadocBaseLocation(JavaElement.java:728)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1011)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:582)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2016-03-05 14:13:58.278
+!MESSAGE D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-03-05 14:35:59.505
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path]
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getRawClasspathEntry(PackageFragmentRoot.java:562)
+	at org.eclipse.jdt.internal.core.JavaElement.getJavadocBaseLocation(JavaElement.java:728)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1011)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:582)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2016-03-05 14:35:59.505
+!MESSAGE D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-03-05 15:06:33.641
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path]
+	at org.eclipse.jdt.internal.core.PackageFragmentRoot.getRawClasspathEntry(PackageFragmentRoot.java:562)
+	at org.eclipse.jdt.internal.core.JavaElement.getJavadocBaseLocation(JavaElement.java:728)
+	at org.eclipse.jdt.internal.core.BinaryType.getJavadocContents(BinaryType.java:1011)
+	at org.eclipse.jdt.internal.core.BinaryMethod.getAttachedJavadoc(BinaryMethod.java:717)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:533)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.extractJavadoc(ProposalInfo.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:75)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:60)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:582)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 1006 2016-03-05 15:06:33.642
+!MESSAGE D:\eclipse-jee-mars-R-win32-x86_64B\eclipse\jre\lib\rt.jar is not on its project's build path
+!SESSION 2016-03-05 20:18:54.715 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product E:\大一下\上传\DaYiXia_WanZhong\俄罗斯方块\DEMO\src\cal\JFrameCal.java
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product E:\大一下\上传\DaYiXia_WanZhong\俄罗斯方块\DEMO\src\cal\JFrameCal.java
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-05 20:19:37.214
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lenovo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2016-03-06 21:31:49.162 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-06 21:32:57.916
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lenovo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY Submit 0 0 2016-03-06 21:34:09.463
+!MESSAGE DEBUG : 	Login as null
+
+!ENTRY Submit 0 0 2016-03-06 21:36:48.571
+!MESSAGE DEBUG : 	Login as null
+
+!ENTRY Submit 0 0 2016-03-06 21:37:04.739
+!MESSAGE DEBUG : 	The response returns{"stu_name":"万众","login_success":1,"stu_id":6367}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:37:29.624
+!MESSAGE DEBUG : 	The response returns{"subjects":[{"sub_id":2,"sub_name":"Java覆盖测试","stages":[{"stage_num":1,"stage_name":"基础使用(极易)","stage_pro_name":"Statistics","stage_str":"EndkhArJNi0="}]},{"sub_id":5,"sub_name":"Java测试驱动编程","stages":[{"stage_num":1,"stage_name":"基础使用","stage_pro_name":"HelloWorld","stage_str":"rdKiLv2LqUM="}]},{"sub_id":16,"sub_name":"Python统计编程","stages":[{"stage_num":1,"stage_name":"求商","stage_pro_name":"Division","stage_str":"7DtOqMeG2WM="}]}]}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:37:36.656
+!MESSAGE DEBUG : 	The response returns{"pro_name":"HelloWorld","sub_id":5,"stage_num":1,"pro_id":31,"eval_standard_id":14,"sub_name":"Java测试驱动编程","pro_loc":"/problems/5/HelloWorld.zip"}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:37:36.656
+!MESSAGE DEBUG : 	Result of advGetProblem is : {"pro_name":"HelloWorld","sub_id":5,"stage_num":1,"pro_id":31,"eval_standard_id":14,"sub_name":"Java测试驱动编程","pro_loc":"/problems/5/HelloWorld.zip"}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:37:40.418
+!MESSAGE DEBUG : 	Downloading http://114.215.183.200:8080/plugin/download/problems/5/HelloWorld.zip to c:/mooctest/projects/adventure/6367/5/1/31/
+
+!ENTRY Submit 0 0 2016-03-06 21:37:40.611
+!MESSAGE DEBUG : 	Download success!
+
+!ENTRY Submit 0 0 2016-03-06 21:37:40.659
+!MESSAGE DEBUG : 	c:/mooctest/projects/adventure/6367/5/1/31//HelloWorld/.project
+
+!ENTRY Submit 0 0 2016-03-06 21:37:41.160
+!MESSAGE DEBUG : 	D:/eclipse-jee-mars-R-win32-x86_64B/eclipse//plugins/net.mooctest.aut_1.0.0.201512221410.jar
+
+!ENTRY Submit 0 0 2016-03-06 21:37:41.189
+!MESSAGE DEBUG : 	Job completed successfully
+
+!ENTRY Submit 0 0 2016-03-06 21:38:28.740
+!MESSAGE DEBUG : 	Now uploading : HelloWorld
+
+!ENTRY Submit 0 0 2016-03-06 21:38:28.741
+!MESSAGE DEBUG : 	Finding projectHelloWorld at location C:/mooctest/projects/adventure/6367/5/1/31/HelloWorld
+
+!ENTRY Submit 0 0 2016-03-06 21:38:28.922
+!MESSAGE DEBUG : ---	In HttpUtil.submitAnswerWithScore	---	
+
+!ENTRY Submit 0 0 2016-03-06 21:38:28.923
+!MESSAGE DEBUG : 	The response returns{"passed":1,"baseline_score":50,"upload_success":1}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:38:34.660
+!MESSAGE DEBUG : 	The response returns{"subjects":[{"sub_id":2,"sub_name":"Java覆盖测试","stages":[{"stage_num":1,"stage_name":"基础使用(极易)","stage_pro_name":"Statistics","stage_str":"EndkhArJNi0="}]},{"sub_id":5,"sub_name":"Java测试驱动编程","stages":[{"stage_num":1,"stage_name":"基础使用","stage_pro_name":"HelloWorld","stage_str":"rdKiLv2LqUM="},{"stage_num":2,"stage_name":"正确使用注释","stage_pro_name":"Comment","stage_str":"CIhddurMJ3Y="}]},{"sub_id":16,"sub_name":"Python统计编程","stages":[{"stage_num":1,"stage_name":"求商","stage_pro_name":"Division","stage_str":"7DtOqMeG2WM="}]}]}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:38:38.356
+!MESSAGE DEBUG : 	The response returns{"pro_name":"Comment","sub_id":5,"stage_num":2,"pro_id":32,"eval_standard_id":14,"sub_name":"Java测试驱动编程","pro_loc":"/problems/5/Comment.zip"}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:38:38.356
+!MESSAGE DEBUG : 	Result of advGetProblem is : {"pro_name":"Comment","sub_id":5,"stage_num":2,"pro_id":32,"eval_standard_id":14,"sub_name":"Java测试驱动编程","pro_loc":"/problems/5/Comment.zip"}/n
+
+!ENTRY Submit 0 0 2016-03-06 21:38:41.225
+!MESSAGE DEBUG : 	Downloading http://114.215.183.200:8080/plugin/download/problems/5/Comment.zip to c:/mooctest/projects/adventure/6367/5/2/32/
+
+!ENTRY Submit 0 0 2016-03-06 21:38:41.304
+!MESSAGE DEBUG : 	Download success!
+
+!ENTRY Submit 0 0 2016-03-06 21:38:41.316
+!MESSAGE DEBUG : 	c:/mooctest/projects/adventure/6367/5/2/32//Comment/.project
+
+!ENTRY Submit 0 0 2016-03-06 21:38:41.398
+!MESSAGE DEBUG : 	D:/eclipse-jee-mars-R-win32-x86_64B/eclipse//plugins/net.mooctest.aut_1.0.0.201512221410.jar
+
+!ENTRY Submit 0 0 2016-03-06 21:38:41.421
+!MESSAGE DEBUG : 	Job completed successfully
+
+!ENTRY Submit 0 0 2016-03-06 21:55:48.401
+!MESSAGE DEBUG : 	Now uploading : Comment
+
+!ENTRY Submit 0 0 2016-03-06 21:55:48.401
+!MESSAGE DEBUG : 	Finding projectComment at location C:/mooctest/projects/adventure/6367/5/2/32/Comment
+
+!ENTRY Submit 0 0 2016-03-06 21:55:48.705
+!MESSAGE DEBUG : ---	In HttpUtil.submitAnswerWithScore	---	
+
+!ENTRY Submit 0 0 2016-03-06 21:55:48.705
+!MESSAGE DEBUG : 	The response returns{"passed":1,"baseline_score":50,"upload_success":1}/n

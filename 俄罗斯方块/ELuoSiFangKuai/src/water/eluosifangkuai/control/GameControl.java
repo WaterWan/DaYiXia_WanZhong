@@ -15,9 +15,10 @@ import water.eluosifangkuai.dao.Data;
 import water.eluosifangkuai.dto.GameDto;
 import water.eluosifangkuai.service.GameService;
 import water.eluosifangkuai.service.GameTetris;
-import water.eluosifangkuai.ui.JFrameGame;
-import water.eluosifangkuai.ui.JPanelGame;
-import water.eluosifangkuai.ui.cfg.FrameConfig;
+import water.eluosifangkuai.ui.window.JFrameConfig;
+import water.eluosifangkuai.ui.window.JFrameGame;
+import water.eluosifangkuai.ui.window.JFrameSavePoint;
+import water.eluosifangkuai.ui.window.JPanelGame;
 
 /**
  * 接受玩家键盘事件 控制画面 控制游戏逻辑
@@ -46,9 +47,14 @@ public class GameControl {
 	private JPanelGame panelGame;
 
 	/**
-	 * 游戏控制窗口
+	 * 游戏设置控制窗口
 	 */
-	private FrameConfig frameConfig;
+	private JFrameConfig frameConfig;
+	
+	/**
+	 * 保存分数窗口
+	 */
+	private JFrameSavePoint frameSavePoint;
 
 	/**
 	 * 游戏行为控制
@@ -83,7 +89,9 @@ public class GameControl {
 		// 读取用户控制设置
 		this.setControlConfig();
 		// 初始化用户配置窗口
-		this.frameConfig = new FrameConfig(this);
+		this.frameConfig = new JFrameConfig(this);
+		// 初始化保存分数窗口
+		this.frameSavePoint = new JFrameSavePoint(this);
 		// 初始化游戏主窗口(安装游戏面板)
 		new JFrameGame(this.panelGame);
 	}
@@ -174,16 +182,32 @@ public class GameControl {
 		this.panelGame.repaint();
 	}
 
+	/**
+	 * 保存分数
+	 * @param name
+	 */
+	public void savePoint(String name) {
+	
+	}
+	
+	/**
+	 * 失败之后的处理
+	 */
+	private void afterLose(){
+		// 显示保存得分窗口
+		this.frameSavePoint.showWindow(this.dto.getNowPoint());
+		// 使按钮可以点击
+		
+		
+	}
+	
 	private class MainThread extends Thread {
 		@Override
 		public void run() {
 			// 刷新画面
 			panelGame.repaint();
 			// 主循环
-			while (true) {
-				if (!dto.isStart()) {
-					break;
-				}
+			while (dto.isStart()) {
 				try {
 					// 等待0.5秒
 					Thread.sleep(500);
@@ -199,7 +223,7 @@ public class GameControl {
 					e.printStackTrace();
 				}
 			}
+			afterLose();
 		}
 	}
-
 }

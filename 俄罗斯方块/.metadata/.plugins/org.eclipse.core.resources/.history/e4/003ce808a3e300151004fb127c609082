@@ -1,0 +1,10 @@
+public class Comment {
+
+	public void comment() {
+		//Comment out the following code like this
+		//System.out.println("Comment one!");
+		
+		/*Comment out the following code like this
+		System.out.println("Comment two!");*/
+	}
+}
