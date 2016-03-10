@@ -10,29 +10,24 @@
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
 	<section name="TextSearchPage">
-		<item value="3" key="HISTORY_SIZE"/>
+		<item value="10" key="HISTORY_SIZE"/>
 		<item value="false" key="CASE_SENSITIVE"/>
-		<item value="true" key="REG_EX_SEARCH"/>
+		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="WHOLE_WORD"/>
 		<item value="false" key="SEARCH_DERIVED"/>
-		<section name="EXTENSIONS">
-			<item value="*.java" key="0"/>
-			<item value="*.*" key="1"/>
-			<item value="*." key="2"/>
-		</section>
-		<section name="HISTORY2">
+		<section name="HISTORY6">
 			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="//" key="textPattern"/>
-			<item value="true" key="isRegExSearch"/>
+			<item value="ImgIdx" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY0">
+		<section name="HISTORY7">
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
@@ -44,12 +39,101 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY1">
+		<section name="HISTORY4">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="start" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="init" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="EXTENSIONS">
+			<item value="*.java" key="0"/>
+			<item value="*.*" key="1"/>
+			<item value="*." key="2"/>
+		</section>
+		<section name="HISTORY8">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
 			<item value="/*" key="textPattern"/>
 			<item value="true" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="//" key="textPattern"/>
+			<item value="true" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="stary" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="startx" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY0">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="下" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.java"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
+			<item value="false" key="isWholeWord"/>
+			<item value="staty" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
 			</list>

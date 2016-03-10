@@ -6,6 +6,7 @@ import java.util.List;
 
 import water.eluosifangkuai.config.GameConfig;
 import water.eluosifangkuai.entity.GameAct;
+import water.eluosifangkuai.util.GameFunction;
 
 public class GameDto {
 	
@@ -73,6 +74,16 @@ public class GameDto {
 	 * 暂停
 	 */
 	private boolean pause;
+	
+	/**
+	 * 是否作弊
+	 */
+	private boolean cheat;
+	
+	/**
+	 * 线程等待时间
+	 */
+	private long sleepTime;
 
 	/**
 	 * 构造函数
@@ -85,9 +96,14 @@ public class GameDto {
 	 * dto初始化
 	 */
 	public void dtoInit(){
-
 		this.gameMap=new boolean[GAMEZONE_W][GAMEZONE_H];
 		//TODO ===p)初始化所有游戏对象
+		this.nowLevel = 1;
+		this.nowPoint = 0;
+		this.nowRemoveLine = 0;
+		this.pause = false;
+		this.cheat = false;
+		this.sleepTime = GameFunction.getSleepTimeByLevel(this.nowLevel);
 	}
 
 	public List<Player> getDbRecode() {
@@ -152,6 +168,8 @@ public class GameDto {
 
 	public void setNowLevel(int nowLevel) {
 		this.nowLevel = nowLevel;
+		// 计算线程睡眠时间(下落速度)
+		this.sleepTime = GameFunction.getSleepTimeByLevel(this.nowLevel);
 	}
 
 	public int getNowPoint() {
@@ -198,5 +216,17 @@ public class GameDto {
 
 	public void changePause() {
 			this.pause = !this.pause;
+	}
+
+	public boolean isCheat() {
+		return cheat;
+	}
+
+	public void setCheat(boolean cheat) {
+		this.cheat = cheat;
+	}
+
+	public long getSleepTime() {
+		return sleepTime;
 	}	
 }

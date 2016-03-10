@@ -2,6 +2,7 @@ package water.eluosifangkuai.ui.window;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,11 +16,14 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
 import water.eluosifangkuai.control.GameControl;
@@ -34,24 +38,24 @@ public class JFrameConfig extends JFrame {
 	private JButton btnUser = new JButton("应用");
 
 	private TextCtrl[] keyText = new TextCtrl[8];
-	
+
 	private JLabel errorMsg = new JLabel();
+
+	private JList skinList = null;
 	
+	private JPanel skinView = null;
+
+	private DefaultListModel skinData = new DefaultListModel();
+
 	private GameControl gameControl;
-	
+
 	private final static Image IMG_PSP = new ImageIcon("data/psp.jpg").getImage();
 	
-	private final static String[] METHOD_NAME = {
-			"keyRight",
-			"keyUp",
-			"keyLeft",
-			"keyDown",
-			"keyFunLeft",
-			"keyFunUp",
-			"keyFunRight",
-			"keyFunDown"
-	};
-	
+	private final static Image IMG_View = new ImageIcon("data/psp.jpg").getImage();
+
+	private final static String[] METHOD_NAME = { "keyRight", "keyUp", "keyLeft", "keyDown", "keyFunLeft", "keyFunUp",
+			"keyFunRight", "keyFunDown" };
+
 	private final static String PATH = "data/control.dat";
 
 	public JFrameConfig(GameControl gameControl) {
@@ -78,7 +82,7 @@ public class JFrameConfig extends JFrame {
 	 * 初始化按键输入框
 	 */
 	private void initKeyText() {
-//		(0, 135, 108, 20)
+		// (0, 135, 108, 20)
 		int x = 0;
 		int y = 135;
 		int w = 111;
@@ -95,7 +99,7 @@ public class JFrameConfig extends JFrame {
 		}
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH));
-			HashMap<Integer, String> cfgSet =(HashMap<Integer, String>)ois.readObject();
+			HashMap<Integer, String> cfgSet = (HashMap<Integer, String>) ois.readObject();
 			ois.close();
 			Set<Entry<Integer, String>> entryset = cfgSet.entrySet();
 			for (Entry<Integer, String> e : entryset) {
@@ -107,7 +111,7 @@ public class JFrameConfig extends JFrame {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 	
+		}
 	}
 
 	/**
@@ -130,7 +134,7 @@ public class JFrameConfig extends JFrame {
 		this.errorMsg.setForeground(Color.RED);
 		jp.add(this.errorMsg);
 		jp.add(btnOk);
-		
+
 		this.btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -138,7 +142,7 @@ public class JFrameConfig extends JFrame {
 			}
 		});
 		jp.add(btnCancel);
-		
+
 		this.btnUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				writeConfig();
@@ -156,8 +160,34 @@ public class JFrameConfig extends JFrame {
 	private JTabbedPane createMainPanel() {
 		JTabbedPane jtp = new JTabbedPane();
 		jtp.addTab("控制设置", this.createControlPanel());
-		jtp.addTab("皮肤设置", new JLabel("皮肤"));
+		jtp.addTab("皮肤设置", this.createSkinPanel());
 		return jtp;
+	}
+
+	/**
+	 * 玩家皮肤面板
+	 * 
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	private Component createSkinPanel() {
+		JPanel panel = new JPanel(new BorderLayout());
+		// TODO 添加内容
+		this.skinData.addElement("1111");
+		this.skinData.addElement("222211111111");
+		this.skinList = new JList(this.skinData);
+		
+		this.skinView = new JPanel(){
+			@Override
+			public void paintComponent(Graphics g) {
+				g.drawImage(IMG_PSP, 0, 0, null);
+			}
+		};
+		
+
+		panel.add(new JScrollPane(this.skinList), BorderLayout.WEST);
+		panel.add(this.skinView, BorderLayout.CENTER);
+		return panel;
 	}
 
 	/**
@@ -166,7 +196,7 @@ public class JFrameConfig extends JFrame {
 	 * @return
 	 */
 	private JPanel createControlPanel() {
-		JPanel jp = new JPanel() {	
+		JPanel jp = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				g.drawImage(IMG_PSP, 0, 0, null);
@@ -177,27 +207,24 @@ public class JFrameConfig extends JFrame {
 		for (int i = 0; i < keyText.length; i++) {
 			jp.add(keyText[i]);
 		}
-		
+
 		return jp;
 	}
-	
-
-	
 
 	/**
 	 * 写入游戏配置
 	 */
-	private boolean writeConfig(){
+	private boolean writeConfig() {
 		HashMap<Integer, String> keySet = new HashMap<Integer, String>();
 		for (int i = 0; i < this.keyText.length; i++) {
 			int keyCode = this.keyText[i].getKeyCode();
-			if(keyCode == 0){
+			if (keyCode == 0) {
 				this.errorMsg.setText("错误按键");
 				return false;
 			}
 			keySet.put(keyCode, this.keyText[i].getMethodName());
 		}
-		if(keySet.size() != 8){
+		if (keySet.size() != 8) {
 			this.errorMsg.setText("重复按键");
 			return false;
 		}

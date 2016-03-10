@@ -45,5 +45,4 @@ public class LayerConfig {
 	public int getH() {
 		return h;
 	}
-
 }

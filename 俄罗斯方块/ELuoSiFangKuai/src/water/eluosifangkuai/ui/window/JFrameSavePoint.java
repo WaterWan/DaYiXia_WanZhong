@@ -33,6 +33,7 @@ public class JFrameSavePoint extends JFrame{
 		this.setLayout(new BorderLayout());
 		this.createCom();
 		this.createAction();
+		
 	}
 	
 	/**
@@ -53,8 +54,9 @@ public class JFrameSavePoint extends JFrame{
 				// TODO 还可以加其他文字验证
 				String name = txName.getText();
 				if (name.length() > 16 || name == null || "".equals(name)) {
-					errMsg.setText("请输入16位以下的名字");
+					errMsg.setText("名字输入错误");
 				} else{
+					setVisible(false);
 					gameControl.savePoint(name);
 				}
 			}
@@ -91,15 +93,16 @@ public class JFrameSavePoint extends JFrame{
 		// 中部面板添加到主面板
 		this.add(center, BorderLayout.CENTER);
 		
-		
-		// 创建确定按钮
-		this.btnOk = new JButton("确定");
 		// 创建南部面板(流式布局)
 		JPanel south = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		// 创建确定按钮
+		this.btnOk = new JButton("确定");
+
 		// 按钮添加到南部面板
 		south.add(btnOk);
 		// 南部面板添加到主面板
 		this.add(south, BorderLayout.SOUTH);
 
 	}
+
 }

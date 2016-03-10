@@ -29,8 +29,5 @@ public class DataInterfaceConfig {
 
 	public Map<String, String> getParam() {
 		return param;
-	}
-	
-	
-	
+	}	
 }

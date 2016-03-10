@@ -17,7 +17,7 @@ public abstract class LayerData extends Layer{
 	/*
 	 * 起始y坐标
 	 */
-	private static int STATR_Y = 0;
+	private static int START_Y = 0;
 	
 	/*
 	 * 值槽外径
@@ -33,7 +33,7 @@ public abstract class LayerData extends Layer{
 	public LayerData(int x, int y, int w, int h) {
 		super(x, y, w, h);
 		SPA = (this.h - RECT_H * 5 - (PANDDING << 1) - Img.DB.getHeight(null))/MAX_ROW;
-		STATR_Y = PANDDING + Img.DB.getHeight(null) + SPA;
+		START_Y = PANDDING + Img.DB.getHeight(null) + SPA;
 	}
 
 
@@ -66,7 +66,7 @@ public abstract class LayerData extends Layer{
 			percent = percent > 1 ? 1.0 : percent;
 			//绘制单条记录
 			String strPoint = recodePoint == 0 ? null : Integer.toString(recodePoint);
-			this.drawRect(STATR_Y + i * (RECT_H + SPA), 
+			this.drawRect(START_Y + i * (RECT_H + SPA), 
 					
 					pla.getName(), strPoint, 
 					percent, g);

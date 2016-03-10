@@ -56,7 +56,7 @@ public class LayerGame extends Layer {
 		boolean[][] map = this.dto.getGameMap();
 		// 计算当前堆积颜色
 		int lv = this.dto.getNowLevel();
-		int imgIdx = lv == 0 ? 0 : (lv - 1) % BORDER + 1;
+		int imgIdx = lv == 1 ? 0 : (lv - 2) % BORDER + 1;
 		for (int x = 0; x < map.length; x++) {
 			for (int y = 0; y < map[x].length; y++) {
 				if (map[x][y]) {

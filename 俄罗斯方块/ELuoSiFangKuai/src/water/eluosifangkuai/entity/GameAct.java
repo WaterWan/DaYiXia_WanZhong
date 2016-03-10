@@ -33,9 +33,9 @@ public class GameAct {
 	}
 
 	public void init(int typeCode){
-		this.typeCode=typeCode;
-		Point[] points=TYPE_CONFIG.get(typeCode)
-;		actPoints=new Point[points.length];
+		this.typeCode = typeCode;
+		Point[] points = TYPE_CONFIG.get(typeCode);
+		actPoints=new Point[points.length];
 		for (int i = 0; i < points.length; i++) {
 			actPoints[i] = new Point(points[i].x, points[i].y);
 		}
@@ -111,9 +111,5 @@ public class GameAct {
 	 */
 	public int getTypeCode() {
 		return typeCode;
-	}
-
-
-
-	
+	}	
 }

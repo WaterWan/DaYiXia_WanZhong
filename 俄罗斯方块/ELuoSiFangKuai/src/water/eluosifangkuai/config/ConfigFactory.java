@@ -6,7 +6,7 @@ public class ConfigFactory {
 	
 	static{
 		try {
-			GAME_CONFIG=new GameConfig();
+			GAME_CONFIG = new GameConfig();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

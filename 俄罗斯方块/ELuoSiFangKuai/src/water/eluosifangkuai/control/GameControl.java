@@ -13,12 +13,14 @@ import water.eluosifangkuai.config.DataInterfaceConfig;
 import water.eluosifangkuai.config.GameConfig;
 import water.eluosifangkuai.dao.Data;
 import water.eluosifangkuai.dto.GameDto;
+import water.eluosifangkuai.dto.Player;
 import water.eluosifangkuai.service.GameService;
 import water.eluosifangkuai.service.GameTetris;
 import water.eluosifangkuai.ui.window.JFrameConfig;
 import water.eluosifangkuai.ui.window.JFrameGame;
 import water.eluosifangkuai.ui.window.JFrameSavePoint;
 import water.eluosifangkuai.ui.window.JPanelGame;
+import water.eluosifangkuai.util.GameFunction;
 
 /**
  * 接受玩家键盘事件 控制画面 控制游戏逻辑
@@ -47,10 +49,10 @@ public class GameControl {
 	private JPanelGame panelGame;
 
 	/**
-	 * 游戏设置控制窗口
+	 * 游戏控制设置窗口
 	 */
 	private JFrameConfig frameConfig;
-	
+
 	/**
 	 * 保存分数窗口
 	 */
@@ -172,6 +174,10 @@ public class GameControl {
 	public void start() {
 		// 面板按钮设置为不可点击
 		this.panelGame.buttonSwitch(false);
+		// 关闭窗口
+		this.frameConfig.setVisible(false);
+		this.frameSavePoint.setVisible(false);
+		
 		// 游戏数据初始化
 		this.gameService.startGame();
 		// 创建线程对象
@@ -184,23 +190,36 @@ public class GameControl {
 
 	/**
 	 * 保存分数
+	 * 
 	 * @param name
 	 */
 	public void savePoint(String name) {
-	
+		Player pla = new Player(name, this.dto.getNowPoint());
+		// 保存记录到数据库
+		this.dataA.saveData(pla);
+		// 保存记录到本地磁盘
+		this.dataB.saveData(pla);
+		// 设置数据库记录到游戏
+		this.dto.setDbRecode(dataA.loadData());
+		// 设置本地磁盘记录到游戏
+		this.dto.setDiskRecode(dataB.loadData());
+		// 刷新画面
+		this.panelGame.repaint();
 	}
-	
+
 	/**
 	 * 失败之后的处理
 	 */
-	private void afterLose(){
-		// 显示保存得分窗口
-		this.frameSavePoint.showWindow(this.dto.getNowPoint());
+	private void afterLose() {
+		if (!this.dto.isCheat()) {
+			// 显示保存得分窗口
+			this.frameSavePoint.setVisible(true);
+			this.frameSavePoint.showWindow(this.dto.getNowPoint());
+		}
 		// 使按钮可以点击
-		
-		
+		this.panelGame.buttonSwitch(true);
 	}
-	
+
 	private class MainThread extends Thread {
 		@Override
 		public void run() {
@@ -209,10 +228,10 @@ public class GameControl {
 			// 主循环
 			while (dto.isStart()) {
 				try {
-					// 等待0.5秒
-					Thread.sleep(500);
+					// 线程睡眠
+					Thread.sleep(dto.getSleepTime());
 					// 如果暂停，那么不执行主行为
-					if(dto.isPause()){
+					if (dto.isPause()) {
 						continue;
 					}
 					// 方块下落

@@ -22,7 +22,7 @@ public class GameTetris implements GameService {
 	/**
 	 * 方块种类个数
 	 */
-	private static final int MAX_TYPE = GameConfig.getSystemConfig().getTypeConfig().size() - 1;
+	private static final int MAX_TYPE = GameConfig.getSystemConfig().getTypeConfig().size();
 
 	/**
 	 * 升级行数
@@ -204,9 +204,10 @@ public class GameTetris implements GameService {
 	}
 
 	/**
-	 * 作弊键 TODO 以后删除
+	 * 作弊键
 	 */
 	public boolean keyFunUp() {
+		this.dto.setCheat(true);
 		this.plusPoint(4);
 		return true;
 	}
@@ -250,6 +251,8 @@ public class GameTetris implements GameService {
 		this.dto.setGameAct(new GameAct(random.nextInt(MAX_TYPE)));
 		// 把游戏状态设为开始
 		this.dto.setStart(true);
+		// dto初始化
+		this.dto.dtoInit();
 	}
 
 	@Override
